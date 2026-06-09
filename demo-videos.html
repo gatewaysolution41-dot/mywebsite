@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Videos - The Gateway Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-green: #00703C;
+        }
+
+        .text-brand-navy { color: var(--brand-navy); }
+        .text-brand-green { color: var(--brand-green); }
+        .bg-brand-navy { background-color: var(--brand-navy); }
+        .bg-brand-green { background-color: var(--brand-green); }
+
+        .demo-card {
+            background: white;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--brand-green);
+            box-shadow: 0 20px 40px rgba(0, 112, 60, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans">
+
+<!-- Header Matching Brand Theme[cite: 1] -->
+<header class="sticky top-0 z-50 bg-[#1E3A8A] border-b-4 border-[#00703C] shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 shadow-inner">
+                <img src="Gateway Logo.jpeg" alt="Logo" class="w-full h-full object-contain">
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white tracking-tight leading-none">The Gateway Solution</h1>
+                <p class="text-[10px] text-green-400 font-bold uppercase tracking-widest mt-1">Digital Growth Partner</p>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-wide">
+            <a href="index.php" class="text-white hover:text-green-400 transition">Home</a>
+            <a href="services.php" class="text-white hover:text-green-400 transition">Services</a>
+            <a href="demo-videos.php" class="text-green-400">Demo Videos</a>
+            <a href="documents.php" class="text-white hover:text-green-400 transition">Documents</a>
+            <a href="about.php" class="text-white hover:text-green-400 transition">About Us</a>
+            <a href="contact.php" class="text-white hover:text-green-400 transition">Contact</a>
+        </nav>
+
+        <a href="book-demo.php" class="bg-[#00703C] hover:bg-white hover:text-[#1E3A8A] text-white px-6 py-2.5 rounded font-extrabold text-xs transition-all uppercase">
+            Book Free Demo
+        </a>
+    </div>
+</header>
+
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <h1 class="text-5xl font-black text-center text-brand-navy mb-4">Live <span class="text-brand-green">Demo</span> Videos</h1>
+        <p class="text-center text-slate-600 mb-16 max-w-2xl mx-auto">Watch how our specialized digital services work in real time to empower your brand.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Demo 1: Bulk SMS[cite: 1] -->
+            <div class="demo-card rounded-3xl overflow-hidden">
+                <div class="aspect-video bg-black flex items-center justify-center">
+                    <iframe width="100%" height="100%" src="SMS DEMO.mp4" 
+                            title="Bulk SMS Demo" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="p-6 border-t border-slate-50">
+                    <h3 class="font-bold text-brand-navy text-lg">Bulk SMS & OTP Campaign</h3>
+                    <p class="text-sm text-slate-500 mt-1">Live demonstration of high-delivery SMS.</p>
+                </div>
+            </div>
+
+            <!-- Demo 2: WhatsApp API[cite: 1] -->
+            <div class="demo-card rounded-3xl overflow-hidden">
+                <div class="aspect-video bg-black flex items-center justify-center">
+                    <iframe width="100%" height="100%" src="Whatsappdemo.mp4" 
+                            title="WhatsApp Demo" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="p-6 border-t border-slate-50">
+                    <h3 class="font-bold text-brand-navy text-lg">Virtual WhatsApp </h3>
+                    <p class="text-sm text-slate-500 mt-1">Multi-image broadcast & Catalog showcase.</p>
+                </div>
+            </div>
+
+            <!-- Demo 3: Meta Ads[cite: 1] -->
+            <div class="demo-card rounded-3xl overflow-hidden">
+                <div class="aspect-video bg-black flex items-center justify-center">
+                    <iframe width="100%" height="100%" src="verified whatsapp.mp4" 
+                            title="Meta Ads Demo" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="p-6 border-t border-slate-50">
+                    <h3 class="font-bold text-brand-navy text-lg">Verified WhatsApp</h3>
+                    <p class="text-sm text-slate-500 mt-1">Multi-image broadcast & Catalog showcase.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-16">
+            <a href="book-demo.php" class="inline-block bg-[#00703C] text-white px-10 py-5 rounded-xl font-black text-lg hover:bg-[#1E3A8A] transition-all shadow-xl">
+                Want a Personalized Live Demo? Book Now →
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Matching Brand Identity[cite: 1] -->
+<footer class="bg-white py-12 text-center text-sm text-slate-500 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-6">
+        <p class="font-bold text-brand-navy mb-2">The Gateway Solution</p>
+        <p>49/1A, 1st Floor, Ambai Road, Alangulam - 627851</p>
+        <p>Email: gatewaysolution41@gmail.com | Mobile: +91 9894012273</p>
+        <div class="mt-8 pt-8 border-t border-slate-50">
+            © 2026 The Gateway Solution. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Gateway Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-green: #00703C;
+        }
+
+        .text-brand-navy { color: var(--brand-navy); }
+        .text-brand-green { color: var(--brand-green); }
+        .bg-brand-navy { background-color: var(--brand-navy); }
+        .bg-brand-green { background-color: var(--brand-green); }
+
+        .stat-card {
+            background: white;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--brand-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 112, 60, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans">
+
+<!-- Header Matching Brand Theme -->
+<header class="sticky top-0 z-50 bg-[#1E3A8A] border-b-4 border-[#00703C] shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 shadow-inner">
+                <img src="Gateway Logo.jpeg" alt="Logo" class="w-full h-full object-contain">
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white tracking-tight leading-none">The Gateway Solution</h1>
+                <p class="text-[10px] text-green-400 font-bold uppercase tracking-widest mt-1">Digital Growth Partner</p>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-wide">
+            <a href="index.php" class="text-white hover:text-green-400 transition">Home</a>
+            <a href="services.php" class="text-white hover:text-green-400 transition">Services</a>
+            <a href="demo-videos.php" class="text-white hover:text-green-400 transition">Demos</a>
+            <a href="documents.php" class="text-white hover:text-green-400 transition">Documents</a>
+            <a href="about.php" class="text-green-400">About Us</a>
+            <a href="contact.php" class="text-white hover:text-green-400 transition">Contact</a>
+        </nav>
+
+        <a href="book-demo.php" class="bg-[#00703C] hover:bg-white hover:text-[#1E3A8A] text-white px-6 py-2.5 rounded font-extrabold text-xs transition-all uppercase">
+            Book Free Demo
+        </a>
+    </div>
+</header>
+
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <h4 class="text-brand-green font-black uppercase text-sm tracking-widest mb-3 text-center">Our Story</h4>
+        <h1 class="text-5xl font-black text-center text-brand-navy mb-12">About <span class="text-brand-green">The Gateway Solution</span></h1>
+        
+        <div class="max-w-3xl mx-auto text-lg leading-relaxed text-slate-600">
+            <p class="mb-6">The Gateway Solution is a leading digital communication and marketing agency based in Alangulam, Tirunelveli District, Tamil Nadu.</p>
+            <p class="mb-6">We specialize in Bulk SMS, Voice Calls, Verified WhatsApp Business API, RCS Messaging, Facebook/Instagram/YouTube/Google Ads, Website Designing, and Professional Video Editing.</p>
+            <p class="font-semibold text-brand-navy">We are TRAI DLT compliant and proud to serve businesses across Tamil Nadu with reliable, high-delivery-rate services.</p>
+        </div>
+
+        <div class="mt-20 grid md:grid-cols-3 gap-8 text-center">
+            <div class="stat-card p-10 rounded-[2.5rem]">
+                <div class="text-5xl font-black text-brand-navy mb-2">1000+</div>
+                <div class="text-brand-green font-bold uppercase tracking-widest text-xs">Happy Clients</div>
+            </div>
+            <div class="stat-card p-10 rounded-[2.5rem]">
+                <div class="text-5xl font-black text-brand-navy mb-2">4.9 Cr+</div>
+                <div class="text-brand-green font-bold uppercase tracking-widest text-xs">Messages Delivered</div>
+            </div>
+            <div class="stat-card p-10 rounded-[2.5rem]">
+                <div class="text-5xl font-black text-brand-navy mb-2">98%</div>
+                <div class="text-brand-green font-bold uppercase tracking-widest text-xs">Average Delivery Rate</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Matching Brand Identity -->
+<footer class="bg-white py-12 text-center text-sm text-slate-500 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 leading-loose">
+        <p class="font-bold text-brand-navy mb-2 text-base">The Gateway Solution</p>
+        <p>49/1A, 1st Floor, Ambai Road, Alangulam - 627851</p>
+        <p>Tirunelveli District, Tamil Nadu, INDIA</p>
+        <p class="mt-4">Email: <a href="mailto:gatewaysolution41@gmail.com" class="text-brand-navy font-bold hover:text-brand-green transition">gatewaysolution41@gmail.com</a></p>
+        <p>Phone: +91 4633 270133 | Mobile: <span class="text-brand-navy font-bold">+91 9894012273</span></p>
+        <div class="mt-10 pt-8 border-t border-slate-50 opacity-60">
+            © 2026 The Gateway Solution. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

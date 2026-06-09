@@ -1,0 +1,45 @@
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recipient Email
+    $to = "gatewaysolution209@gmail.com"; 
+    
+    // Form Data - Sanitize inputs
+    $name    = strip_tags(trim($_POST["name"]));
+    $phone   = strip_tags(trim($_POST["phone"]));
+    $email   = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL); // New Email Field
+    $message = isset($_POST["message"]) ? strip_tags(trim($_POST["message"])) : "No message provided (Consultation Form)";
+    
+    // Check if terms were agreed (for Index page form)
+    $terms_status = isset($_POST["terms_agreed"]) ? "Agreed" : "Not Provided/Not Required";
+
+    $subject = "New Business Inquiry: $name";
+    
+    // Email Content - Neatly Formatted
+    $email_content = "You have received a new message from your website contact form.\n\n";
+    $email_content .= "------------------------------------------\n";
+    $email_content .= "Name          : $name\n";
+    $email_content .= "Mobile        : $phone\n";
+    $email_content .= "Email         : $email\n";
+    $email_content .= "Terms Agreed  : $terms_status\n";
+    $email_content .= "------------------------------------------\n\n";
+    $email_content .= "Message:\n$message\n\n";
+    $email_content .= "------------------------------------------";
+
+    // Email Headers
+    // Note: 'From' email must be a domain-based email for GoDaddy/Hosting to work properly
+    $headers = "From: contact@thegatewaysolution.com\r\n";
+    $headers .= "Reply-To: $email\r\n"; // User-oda email-ku direct-ah reply panna ithu help aagum
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+    // Send Email
+    if (mail($to, $subject, $email_content, $headers)) {
+        // Success Alert and Redirect
+        echo "<script>alert('Thank you! Your inquiry has been sent successfully.'); window.location.href='index.php';</script>";
+    } else {
+        // Error handling
+        echo "<script>alert('Oops! System error. Please try calling us directly.'); window.location.href='contact.php';</script>";
+    }
+} else {
+    echo "Access Denied: Please submit the form correctly.";
+}
+?>

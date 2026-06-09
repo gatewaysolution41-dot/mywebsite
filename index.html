@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Gateway Solution - Bulk SMS, Verified WhatsApp, RCS, Voice Call, Digital Ads, Website Design in Alangulam, Tamil Nadu">
+    <title>The Gateway Solution | Bulk Communication & Digital Growth</title>
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <style>
+        :root {
+            --navy: #1E3A8A;
+            --forest: #00703C;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        .bg-brand-navy { background-color: #1E3A8A; }
+        .bg-brand-green { background-color: #00703C; }
+        .text-brand-green { color: #00703C; }
+        .text-brand-navy { color: #1E3A8A; }
+        .border-brand-green { border-color: #00703C; }
+
+        .hero-bg { background: #0f172a; }
+
+        .nav-link {
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover { color: #00703C; }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #00703C;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after { width: 100%; }
+
+        .heroSwiper { width: 100%; height: auto; min-height: 300px; }
+        .heroSwiper img { width: 100%; height: 100%; object-fit: contain; }
+
+        .swiper-pagination-bullet-active { background: #00703C !important; }
+
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+            background-color: #ffffff;
+        }
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(30, 58, 138, 0.15);
+            border-color: #00703C;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+            text-align: left;
+        }
+
+        /* --- News Ticker Animation Styles --- */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 6)); }
+        }
+
+        .slider {
+            background: white;
+            height: 120px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .slider .slide-track {
+            animation: scroll 30s linear infinite;
+            display: flex;
+            width: calc(250px * 12);
+        }
+
+        .slider .slide {
+            height: 120px;
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .slider img {
+            max-height: 75px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .slider img:hover {
+            transform: scale(1.15);
+        }
+        /* ------------------------------------ */
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #00703C;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background: #25D366; }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #1E3A8A;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-slate-900">
+
+<!-- ==================== HEADER ==================== -->
+<header class="sticky top-0 z-50 bg-brand-navy border-b-4 border-brand-green shadow-xl">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 shadow-inner">
+                <img src="Gateway Logo.jpeg" alt="Logo" class="w-full h-full object-contain">
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white tracking-tight leading-none">The Gateway Solution</h1>
+                <p class="text-[10px] text-green-400 font-bold uppercase tracking-widest mt-1">Digital Growth Partner</p>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-wide">
+            <a href="index.php" class="nav-link">Home</a>
+            <a href="services.php" class="nav-link">Services</a>
+            <a href="demo-videos.php" class="nav-link">Demos</a>
+            <a href="about.php" class="nav-link">About</a>
+            <a href="contact.php" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <a href="#enquiry-form" class="hidden sm:inline-block bg-brand-green hover:bg-white hover:text-brand-navy text-white px-6 py-2.5 rounded font-extrabold text-xs transition-all">
+                BOOK FREE DEMO
+            </a>
+            <button id="menu-btn" class="md:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-navy border-t border-white/10 px-6 py-6 space-y-4">
+    <a href="index.php" class="block text-white font-bold">Home</a>
+    <a href="services.php" class="block text-white font-bold">Services</a>
+    <a href="about.php" class="block text-white font-bold">About Us</a>
+    <!-- Added These -->
+    <a href="terms.php" class="block text-white/70 text-sm">Terms & Conditions</a>
+    <a href="privacy.php" class="block text-white/70 text-sm">Privacy Policy</a>
+    <a href="#enquiry-form" class="block text-green-400 font-black">Book Free Demo</a>
+</div>
+</header>
+
+<!-- ==================== HERO CAROUSEL ==================== -->
+<section class="hero-bg">
+    <div class="w-full">
+        <div class="swiper heroSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="1.png" alt="Slide 1"></div>
+                <div class="swiper-slide"><img src="2.png" alt="Slide 2"></div>
+                <div class="swiper-slide"><img src="3.png" alt="Slide 3"></div>
+                <div class="swiper-slide"><img src="4.png" alt="Slide 4"></div>
+                <div class="swiper-slide"><img src="5.png" alt="Slide 5"></div>
+                <div class="swiper-slide"><img src="6.png" alt="Slide 6"></div>
+                <div class="swiper-slide"><img src="7.png" alt="Slide 7"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ABOUT US SECTION (UPDATED) ==================== -->
+<section id="about-us" class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h4 class="text-brand-green font-black uppercase text-sm tracking-widest mb-4 italic">Alangulam's Premier Digital Agency</h4>
+                <h2 class="text-4xl md:text-5xl font-black text-brand-navy leading-tight mb-6">
+                    Grow Your Brand with <span class="text-brand-green">The Gateway Solution</span>
+                </h2>
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Based in Alangulam, Tirunelveli District, we are a leading digital communication and marketing agency. We specialize in empowering businesses across Tamil Nadu with high-delivery-rate digital services.
+                </p>
+                <p class="text-gray-600 mb-8">
+                    We are TRAI DLT compliant and pride ourselves on delivering reliable Bulk SMS, Voice Calls, and Verified WhatsApp Business API solutions. From ads to automation, we bridge the gap between you and your customers.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <span class="bg-blue-50 text-brand-navy px-4 py-2 rounded-full text-xs font-bold border border-blue-100">#DLT_COMPLIANT</span>
+                    <span class="bg-green-50 text-brand-green px-4 py-2 rounded-full text-xs font-bold border border-green-100">#WHATSAPP_PARTNER</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="stat-card border-b-4 border-brand-navy">
+                    <div class="text-brand-green mb-4"><i class="fas fa-users text-4xl"></i></div>
+                    <div class="text-4xl font-black text-brand-navy mb-1">1000+</div>
+                    <div class="text-gray-500 font-bold uppercase text-xs tracking-widest">Happy Clients</div>
+                </div>
+                <div class="stat-card border-b-4 border-brand-green">
+                    <div class="text-brand-navy mb-4"><i class="fas fa-paper-plane text-4xl"></i></div>
+                    <div class="text-4xl font-black text-brand-navy mb-1">4.9 Cr+</div>
+                    <div class="text-gray-500 font-bold uppercase text-xs tracking-widest">Messages Delivered</div>
+                </div>
+                <div class="stat-card border-b-4 border-brand-green">
+                    <div class="text-brand-navy mb-4"><i class="fas fa-chart-line text-4xl"></i></div>
+                    <div class="text-4xl font-black text-brand-navy mb-1">98%</div>
+                    <div class="text-gray-500 font-bold uppercase text-xs tracking-widest">Avg. Delivery Rate</div>
+                </div>
+                <div class="stat-card border-b-4 border-brand-navy">
+                    <div class="text-brand-green mb-4"><i class="fas fa-certificate text-4xl"></i></div>
+                    <div class="text-2xl font-black text-brand-navy mb-1">Official</div>
+                    <div class="text-gray-500 font-bold uppercase text-xs tracking-widest">TRAI DLT Partner</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CLIENT LOGO TICKER (NEWS FORMAT) ==================== -->
+<section class="py-16 bg-gray-50 border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 mb-10">
+        <h2 class="text-3xl font-black text-brand-navy uppercase text-center">Some of Our Clients</h2>
+        <div class="h-1.5 w-16 bg-brand-green mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="slider">
+        <div class="slide-track">
+            <!-- Set 1 -->
+            <div class="slide"><img src="mariam.jpeg" alt="Sankar Jewellers"></div>
+            <div class="slide"><img src="james.jfif" alt="Selvarani"></div>
+            <div class="slide"><img src="selvarani.jpeg" alt="Bharathi Silks"></div>
+            <div class="slide"><img src="rajan.jpeg" alt="Aadhira Hospital"></div>
+            <div class="slide"><img src="joen.jpeg" alt="CSC Education"></div>
+            <div class="slide"><img src="honda.png" alt="Joen Packers"></div>
+            <!-- Set 2 (for continuous loop) -->
+            <div class="slide"><img src="suresh.png" alt="Suresh Academy"></div>
+            <div class="slide"><img src="bharath.png" alt="Selvarani"></div>
+            <div class="slide"><img src="mario.png" alt="Bharathi Silks"></div>
+            <div class="slide"><img src="athi.png" alt="Aadhira Hospital"></div>
+            <div class="slide"><img src="csc.jpeg" alt="CSC Education"></div>
+            <div class="slide"><img src="indane.jpg" alt="Joen Packers"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SERVICES GRID ==================== -->
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-black text-brand-navy uppercase tracking-tight">Professional Growth Services</h2>
+        <div class="h-1.5 w-20 bg-brand-green mx-auto mt-4 mb-16 rounded-full"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="service-card p-10 rounded-3xl text-left">
+                <div class="w-16 h-16 bg-brand-green/10 flex items-center justify-center rounded-2xl mb-6">
+                    <i class="fab fa-whatsapp text-4xl text-brand-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-navy mb-4">Verified WhatsApp API</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Scale with Official Business API, Green Tick verification, and automated Chatbots.</p>
+            </div>
+            <div class="service-card p-10 rounded-3xl text-left">
+                <div class="w-16 h-16 bg-brand-navy/10 flex items-center justify-center rounded-2xl mb-6">
+                    <i class="fas fa-sms text-4xl text-brand-navy"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-navy mb-4">Smart Bulk SMS</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Instant Promotional and Transactional SMS with 100% DLT compliance.</p>
+            </div>
+            <div class="service-card p-10 rounded-3xl text-left">
+                <div class="w-16 h-16 bg-brand-green/10 flex items-center justify-center rounded-2xl mb-6">
+                    <i class="fas fa-bullhorn text-4xl text-brand-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-navy mb-4">Meta & Google Ads</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Expertly managed social media and search campaigns targeted to your local audience.</p>
+            </div>
+            <div class="service-card p-10 rounded-3xl text-left">
+                <div class="w-16 h-16 bg-brand-navy/10 flex items-center justify-center rounded-2xl mb-6">
+                    <i class="fas fa-video text-4xl text-brand-navy"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-navy mb-4">Video & AI Content</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Professional cinematic video editing and AI-driven content for high engagement.</p>
+            </div>
+            <div class="service-card p-10 rounded-3xl text-left">
+                <div class="w-16 h-16 bg-brand-green/10 flex items-center justify-center rounded-2xl mb-6">
+                    <i class="fas fa-laptop-code text-4xl text-brand-green"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-navy mb-4">Web Development</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Fast, mobile-responsive websites custom-built to convert visitors into customers.</p>
+            </div>
+            <div class="service-card p-10 rounded-3xl text-left">
+                <div class="w-16 h-16 bg-brand-navy/10 flex items-center justify-center rounded-2xl mb-6">
+                    <i class="fas fa-comment-dots text-4xl text-brand-navy"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-navy mb-4">RCS Rich Messaging</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Modern SMS with images, buttons, and carousels for 10x higher brand engagement.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ENQUIRY FORM (UPDATED) ==================== -->
+<section id="enquiry-form" class="py-24 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-6">
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+            <h2 class="text-3xl font-black text-brand-navy mb-2">Get Expert Consultation</h2>
+            <p class="text-gray-500 mb-8 font-medium">Fill out the form below and our team will contact you shortly.</p>
+            
+            <form action="process-form.php" method="POST" class="space-y-5">
+                <!-- Name Field -->
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Name</label>
+                    <input type="text" name="name" placeholder="Your full name" required
+                           class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 transition-all focus:border-brand-navy focus:ring-2 focus:ring-brand-navy/10">
+                </div>
+
+                <!-- Row for Mobile & Email -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div>
+        <label class="block text-sm font-bold text-gray-700 mb-2">Mobile Number</label>
+        <input type="tel" name="mobile" 
+               placeholder="10 Digit Mobile Number" 
+               pattern="[6-9][0-9]{9}" 
+               maxlength="10" 
+               title="Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9"
+               required
+               class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 transition-all focus:border-brand-navy focus:ring-2 focus:ring-brand-navy/10">
+    </div>
+    <div>
+        <label class="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+        <input type="email" name="email" 
+               placeholder="example@email.com" 
+               required
+               class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 transition-all focus:border-brand-navy focus:ring-2 focus:ring-brand-navy/10">
+    </div>
+</div>
+
+                <!-- Terms & Conditions Checkbox -->
+                <div class="flex items-start gap-3 py-2">
+                    <input type="checkbox" id="terms" name="terms_agreed" required 
+                           class="mt-1 w-4 h-4 text-brand-green border-gray-300 rounded focus:ring-brand-green">
+                    <label for="terms" class="text-xs text-gray-600 leading-relaxed">
+                        I agree to the <a href="terms.php" class="text-brand-navy font-bold underline">Terms & Conditions</a> and <a href="privacy.php" class="text-brand-navy font-bold underline">Privacy Policy</a>. I also consent to receive updates via SMS/WhatsApp.
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-brand-navy hover:bg-brand-green text-white font-black py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <i class="fas fa-paper-plane"></i> SUBMIT ENQUIRY
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== UPDATED FOOTER ==================== -->
+<footer class="bg-brand-navy border-t-[10px] border-brand-green pt-20 pb-10 text-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div class="space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-1">
+                        <img src="Gateway Logo.jpeg" alt="Footer Logo" class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-2xl font-black tracking-tighter">The Gateway <span class="text-brand-green">Solution</span></h2>
+                </div>
+                <p class="text-blue-100/60 text-sm leading-relaxed">Tamil Nadu's premier digital growth partner. Specialized in communication and marketing.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-green transition-all"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-green transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-green transition-all"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-brand-green font-black uppercase text-xs tracking-[0.2em] mb-8">Navigation</h4>
+                <ul class="space-y-4 text-sm font-medium">
+                    <li><a href="index.php" class="hover:text-brand-green transition-colors">Home</a></li>
+                    <li><a href="services.php" class="hover:text-brand-green transition-colors">Services</a></li>
+                    <li><a href="about.php" class="hover:text-brand-green transition-colors">About Us</a></li>
+                    <!-- Added Legal Links Here -->
+                    <li><a href="terms.php" class="hover:text-brand-green transition-colors">Terms & Conditions</a></li>
+                    <li><a href="privacy.php" class="hover:text-brand-green transition-colors">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-brand-green font-black uppercase text-xs tracking-[0.2em] mb-8">Contact Support</h4>
+                <ul class="space-y-5 text-sm">
+                    <li class="flex items-start gap-4"><i class="fas fa-map-marker-alt text-brand-green mt-1"></i><span class="text-blue-100/80">49/1A, 1st Floor, Ambai Road,<br>Alangulam - 627851, Tamil Nadu.</span></li>
+                    <li class="flex items-center gap-4"><i class="fas fa-phone-alt text-brand-green"></i><span class="text-blue-100/80">+91 98940 12273</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-brand-green font-black uppercase text-xs tracking-[0.2em] mb-8">Trust & Compliance</h4>
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-4">
+                    <div class="flex items-center gap-3 text-xs font-bold uppercase"><i class="fas fa-shield-check text-brand-green"></i> TRAI DLT APPROVED</div>
+                    <p class="text-[11px] text-blue-100/40 italic">Meta Partner. Compliant with TRAI guidelines for secure Bulk SMS delivery.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-[11px] uppercase tracking-widest text-blue-100/30">
+                © 2026 The Gateway Solution. All Rights Reserved.
+            </div>
+            <div class="flex gap-6 text-[10px] uppercase tracking-widest text-blue-100/30">
+                <a href="terms.php" class="hover:text-white transition-colors">Terms</a>
+                <a href="privacy.php" class="hover:text-white transition-colors">Privacy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/919894012273" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    const swiper = new Swiper(".heroSwiper", {
+        loop: true,
+        effect: "fade",
+        speed: 1000,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true },
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // 1. Sanitize & Get Inputs
+    $name    = htmlspecialchars(trim($_POST['name'] ?? ''));
+    $email   = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+    $mobile  = htmlspecialchars(trim($_POST['mobile'] ?? ''));
+    $agreed  = isset($_POST['terms_agree']) ? 'Yes' : 'No';
+
+    // 2. Strict Validation Logic
+    
+    // Check if empty or terms not agreed
+    if (empty($name) || empty($email) || empty($mobile) || $agreed === 'No') {
+        die("<script>alert('Please fill all required fields and agree to the terms.'); window.history.back();</script>");
+    }
+
+    // Email .com / Format Validation
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("<script>alert('Invalid Email format! Please enter a valid email address.'); window.history.back();</script>");
+    }
+
+    // Mobile Number Validation (Exactly 10 digits & starts with 6-9)
+    if (!preg_match('/^[6-9][0-9]{9}$/', $mobile)) {
+        die("<script>alert('Invalid Mobile Number! Please enter exactly 10 digits.'); window.history.back();</script>");
+    }
+
+    // 3. Email Configuration
+    $to      = "gatewaysolution41@gmail.com";
+    $subject = "Consultation Lead: $name";
+    
+    // Better Message Formatting
+    $email_body = "New Enquiry Details:\n";
+    $email_body .= "--------------------------\n";
+    $email_body .= "Name: $name\n";
+    $email_body .= "Email: $email\n";
+    $email_body .= "Mobile: $mobile\n";
+    $email_body .= "Agreed to Terms: $agreed\n";
+    $email_body .= "--------------------------";
+
+    $headers = "From: webmaster@thegatewaysolution.com\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8";
+
+    // 4. Execution
+    if (mail($to, $subject, $email_body, $headers)) {
+        echo "<script>alert('Thank you! We will contact you shortly.'); window.location.href='index.php';</script>";
+    } else {
+        echo "Error: Server mail service is not active. Please contact us via WhatsApp.";
+    }
+} else {
+    header("Location: index.php");
+    exit();
+}
+?>

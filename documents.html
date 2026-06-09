@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Documents - The Gateway Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --brand-navy: #1E3A8A;
+            --brand-green: #00703C;
+        }
+
+        .text-brand-navy { color: var(--brand-navy); }
+        .text-brand-green { color: var(--brand-green); }
+        .bg-brand-navy { background-color: var(--brand-navy); }
+        .bg-brand-green { background-color: var(--brand-green); }
+        
+        .doc-card {
+            background: white;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .doc-card:hover {
+            border-color: var(--brand-green);
+            box-shadow: 0 15px 35px rgba(0, 112, 60, 0.08);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans">
+
+<!-- Header Matching Brand Theme -->
+<header class="sticky top-0 z-50 bg-[#1E3A8A] border-b-4 border-[#00703C] shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 shadow-inner">
+                <img src="Gateway Logo.jpeg" alt="Logo" class="w-full h-full object-contain">
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white tracking-tight leading-none">The Gateway Solution</h1>
+                <p class="text-[10px] text-green-400 font-bold uppercase tracking-widest mt-1">Digital Growth Partner</p>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-wide">
+            <a href="index.php" class="text-white hover:text-green-400 transition">Home</a>
+            <a href="services.php" class="text-white hover:text-green-400 transition">Services</a>
+            <a href="demo-videos.php" class="text-white hover:text-green-400 transition">Demos</a>
+            <a href="documents.php" class="text-green-400">Documents</a>
+            <a href="about.php" class="text-white hover:text-green-400 transition">About Us</a>
+            <a href="contact.php" class="text-white hover:text-green-400 transition">Contact</a>
+        </nav>
+
+        <a href="book-demo.php" class="bg-[#00703C] hover:bg-white hover:text-[#1E3A8A] text-white px-6 py-2.5 rounded font-extrabold text-xs transition-all uppercase">
+            Book Free Demo
+        </a>
+    </div>
+</header>
+
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <h4 class="text-brand-green font-black uppercase text-sm tracking-widest mb-3 text-center">Compliance Made Easy</h4>
+        <h1 class="text-5xl font-black text-center text-brand-navy mb-4">Registration <span class="text-brand-green">Documents</span></h1>
+        <p class="text-center text-slate-600 mb-16">Fast-track your business communication with our quick onboarding process.</p>
+
+        <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <!-- Bulk SMS / Voice Card -->
+            <div class="doc-card rounded-[2.5rem] p-10">
+                <h2 class="text-2xl font-black text-brand-navy mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-sms text-brand-navy"></i>
+                    </div>
+                    Bulk SMS & Voice Call
+                </h2>
+                <ul class="space-y-4 text-slate-600">
+                    <li class="flex items-start gap-3"><i class="fas fa-file-alt text-brand-green mt-1"></i> <span><strong>Company PAN Card</strong> (Required for ID)</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-file-invoice text-brand-green mt-1"></i> <span><strong>GST Certificate</strong> (Mandatory for DLT)</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-university text-brand-green mt-1"></i> <span><strong>Cancelled Cheque</strong> / Bank Statement</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-brand-green mt-1"></i> <span><strong>Business Address Proof</strong></span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-signature text-brand-green mt-1"></i> <span><strong>Authorization Letter</strong> (Template provided)</span></li>
+                </ul>
+                <div class="mt-10 p-4 bg-blue-50 rounded-xl border-l-4 border-brand-navy">
+                    <p class="text-xs text-brand-navy font-bold italic">Note: We provide full assistance for DLT Registration on Airtel, Jio, and BSNL platforms.</p>
+                </div>
+            </div>
+
+            <!-- Verified WhatsApp Card -->
+            <div class="doc-card rounded-[2.5rem] p-10">
+                <h2 class="text-2xl font-black text-brand-navy mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
+                        <i class="fab fa-whatsapp text-brand-green"></i>
+                    </div>
+                    WhatsApp Business API
+                </h2>
+                <ul class="space-y-4 text-slate-600">
+                    <li class="flex items-start gap-3"><i class="fas fa-id-badge text-brand-green mt-1"></i> <span><strong>Business Name & Logo</strong></span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-mobile-alt text-brand-green mt-1"></i> <span><strong>Valid Phone Number</strong> (New number preferred)</span></li>
+                    <li class="flex items-start gap-3"><i class="fab fa-facebook text-brand-green mt-1"></i> <span><strong>Meta Business Manager ID</strong></span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-green mt-1"></i> <span><strong>PAN & GST</strong> (For Green Tick Verification)</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-globe text-brand-green mt-1"></i> <span><strong>Website URL</strong> (Optional but recommended)</span></li>
+                </ul>
+                <div class="mt-10 p-4 bg-green-50 rounded-xl border-l-4 border-brand-green">
+                    <p class="text-xs text-brand-green font-bold italic">Service: We complete full WhatsApp verification & API setup within 24-48 hours.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-20">
+            <a href="book-demo.php" 
+               class="inline-flex items-center gap-4 bg-[#1E3A8A] text-white px-12 py-5 rounded-2xl font-black text-lg hover:bg-[#00703C] transition-all shadow-xl group">
+                <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                Start Registration - Book Free Demo
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Matching Brand Identity -->
+<footer class="bg-white py-12 text-center text-sm text-slate-500 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-6">
+        <p class="font-bold text-brand-navy mb-2">The Gateway Solution</p>
+        <p>49/1A, 1st Floor, Ambai Road, Alangulam - 627851</p>
+        <p>Email: gatewaysolution41@gmail.com | Mobile: +91 9894012273</p>
+        <div class="mt-8 pt-8 border-t border-slate-50">
+            © 2026 The Gateway Solution. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

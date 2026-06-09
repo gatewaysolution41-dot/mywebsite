@@ -1,0 +1,24 @@
+<?php
+include 'config.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name    = $conn->real_escape_string($_POST['name']);
+    $phone   = $conn->real_escape_string($_POST['phone']);
+    $email   = $conn->real_escape_string($_POST['email'] ?? '');
+    $service = $conn->real_escape_string($_POST['service'] ?? '');
+    $message = $conn->real_escape_string($_POST['message'] ?? '');
+
+    $sql = "INSERT INTO leads (name, phone, email, service, message) 
+            VALUES ('$name', '$phone', '$email', '$service', '$message')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<script>
+            alert('Thank you! Our team will contact you within 15 minutes.');
+            window.location.href = 'index.php';
+        </script>";
+    } else {
+        echo "Error: " . $conn->error;
+    }
+}
+$conn->close();
+?>
