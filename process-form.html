@@ -42,12 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 4. Execution
     if (mail($to, $subject, $email_body, $headers)) {
-        echo "<script>alert('Thank you! We will contact you shortly.'); window.location.href='index.php';</script>";
+        echo "<script>alert('Thank you! We will contact you shortly.'); window.location.href='index.html';</script>";
     } else {
         echo "Error: Server mail service is not active. Please contact us via WhatsApp.";
     }
 } else {
-    header("Location: index.php");
+    header("Location: index.html");
     exit();
 }
 ?>
