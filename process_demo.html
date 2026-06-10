@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include 'config.html';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name    = $conn->real_escape_string($_POST['name']);
@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->query($sql) === TRUE) {
         echo "<script>
             alert('Thank you! Our team will contact you within 15 minutes.');
-            window.location.href = 'index.php';
+            window.location.href = 'index.html';
         </script>";
     } else {
         echo "Error: " . $conn->error;
