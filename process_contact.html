@@ -34,10 +34,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // Send Email
     if (mail($to, $subject, $email_content, $headers)) {
         // Success Alert and Redirect
-        echo "<script>alert('Thank you! Your inquiry has been sent successfully.'); window.location.href='index.php';</script>";
+        echo "<script>alert('Thank you! Your inquiry has been sent successfully.'); window.location.href='index.html';</script>";
     } else {
         // Error handling
-        echo "<script>alert('Oops! System error. Please try calling us directly.'); window.location.href='contact.php';</script>";
+        echo "<script>alert('Oops! System error. Please try calling us directly.'); window.location.href='contact.html';</script>";
     }
 } else {
     echo "Access Denied: Please submit the form correctly.";
