@@ -20,7 +20,6 @@
 </head>
 <body class="bg-white text-slate-800 font-sans">
 
-<!-- Header Matching Brand Theme -->
 <header class="sticky top-0 z-50 bg-[#1E3A8A] border-b-4 border-[#00703C] shadow-lg">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <div class="flex items-center gap-4">
@@ -88,42 +87,106 @@
 
         <div class="bg-white p-10 rounded-[2.5rem] shadow-xl border border-slate-100">
             <h3 class="text-2xl font-black text-brand-navy mb-6">Send a Message</h3>
-            <form action="process_contact.html" method="POST" class="space-y-6">
-    <!-- Name -->
-    <input type="text" name="name" placeholder="Your Name" required 
-           class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all">
-    
-    <!-- Email with Verification -->
-    <input type="email" name="email" placeholder="Email Address (e.g. name@gmail.com)" required 
-           class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all">
-    
-    <!-- Mobile with 10 Digit Verification -->
-    <input type="tel" name="phone" 
-           placeholder="10 Digit Mobile Number" 
-           pattern="[6-9][0-9]{9}" 
-           maxlength="10" 
-           title="Enter 10 digit number only"
-           required 
-           class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all">
-    
-    <textarea name="message" rows="5" placeholder="Your Message" 
-              class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all"></textarea>
-    
-    <button type="submit" class="w-full bg-[#1E3A8A] hover:bg-[#00703C] text-white py-6 rounded-2xl font-black text-lg transition-all shadow-lg uppercase tracking-wider">
-        SEND MESSAGE →
-    </button>
-</form>
+            
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+                <input type="text" name="name" placeholder="Your Name" required 
+                       class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all">
+                
+                <input type="email" name="email" placeholder="Email Address (e.g. name@gmail.com)" required 
+                       class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all">
+                
+                <input type="tel" name="phone" 
+                       placeholder="10 Digit Mobile Number" 
+                       pattern="[6-9][0-9]{9}" 
+                       maxlength="10" 
+                       title="Enter 10 digit number only"
+                       required 
+                       class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all">
+                
+                <textarea name="message" rows="5" placeholder="Your Message" required
+                          class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all"></textarea>
+                
+                <button type="submit" id="submitBtn" class="w-full bg-[#1E3A8A] hover:bg-[#00703C] text-white py-6 rounded-2xl font-black text-lg transition-all shadow-lg uppercase tracking-wider">
+                    SEND MESSAGE →
+                </button>
+            </form>
+
+            <div id="successResponse" class="hidden text-center py-12 space-y-4">
+                <div class="w-20 h-20 bg-green-100 text-[#00703C] rounded-full flex items-center justify-center mx-auto text-3xl shadow-md">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="text-3xl font-black text-[#1E3A8A]">Thank You!</h3>
+                <p class="text-slate-600 text-lg">Your message has been sent successfully. We will contact you soon.</p>
+            </div>
+
+            <div id="errorResponse" class="hidden text-center py-4 mt-4 text-red-600 font-bold bg-red-50 rounded-xl">
+                <p>⚠️ Submission failed. Please check your network connection and try again.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Footer Matching Brand Identity -->
 <footer class="bg-white py-12 text-center text-sm text-slate-500 border-t border-slate-100">
     <div class="max-w-7xl mx-auto px-6">
         <p class="font-bold text-brand-navy mb-2">The Gateway Solution</p>
         <p>© 2026 The Gateway Solution. All Rights Reserved.</p>
     </div>
 </footer>
+
+<script>
+const form = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const successResponse = document.getElementById('successResponse');
+const errorResponse = document.getElementById('errorResponse');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // UI Feedback: Show backend process active
+    submitBtn.disabled = true;
+    submitBtn.innerText = "SENDING...";
+    errorResponse.classList.add('hidden');
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    // Dynamic background data transfer
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let res = await response.json();
+            if (response.status == 200) {
+                // Smooth backend execution complete -> update display states
+                form.reset();
+                form.classList.add('hidden');
+                successResponse.classList.remove('hidden');
+            } else {
+                console.error(res);
+                showError();
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            showError();
+        });
+});
+
+function showError() {
+    errorResponse.classList.remove('hidden');
+    submitBtn.disabled = false;
+    submitBtn.innerText = "SEND MESSAGE →";
+}
+</script>
 
 </body>
 </html>
