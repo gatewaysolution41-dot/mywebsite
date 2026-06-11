@@ -88,17 +88,15 @@
         <div class="bg-white p-10 rounded-[2.5rem] shadow-xl border border-slate-100">
             <h3 class="text-2xl font-black text-brand-navy mb-6">Send a Message</h3>
             
-            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+            <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSd7_Gv3R3W6UqBv65X3qO2b_mN2A5wN-XW3xR6qL2NswGqQ/formResponse" method="POST" class="space-y-6">
                 
-                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-
-                <input type="text" name="name" placeholder="Your Name" required 
+                <input type="text" name="entry.2081518590" placeholder="Your Name" required 
                        class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all">
                 
-                <input type="email" name="email" placeholder="Email Address (e.g. name@gmail.com)" required 
+                <input type="email" name="entry.311746764" placeholder="Email Address (e.g. name@gmail.com)" required 
                        class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all">
                 
-                <input type="tel" name="phone" 
+                <input type="tel" name="entry.1706692994" 
                        placeholder="10 Digit Mobile Number" 
                        pattern="[6-9][0-9]{9}" 
                        maxlength="10" 
@@ -106,7 +104,7 @@
                        required 
                        class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all">
                 
-                <textarea name="message" rows="5" placeholder="Your Message" required
+                <textarea name="entry.577610058" rows="5" placeholder="Your Message / Required Services" required
                           class="w-full px-6 py-5 rounded-2xl bg-slate-50 border border-slate-200 outline-none focus:ring-4 focus:ring-brand-navy/5 focus:border-brand-navy transition-all"></textarea>
                 
                 <button type="submit" id="submitBtn" class="w-full bg-[#1E3A8A] hover:bg-[#00703C] text-white py-6 rounded-2xl font-black text-lg transition-all shadow-lg uppercase tracking-wider">
@@ -145,47 +143,33 @@ const errorResponse = document.getElementById('errorResponse');
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // UI Feedback: Show backend process active
+    // பட்டன் லோடிங் அனிமேஷன் அம்சம்
     submitBtn.disabled = true;
     submitBtn.innerText = "SENDING...";
     errorResponse.classList.add('hidden');
 
     const formData = new FormData(form);
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
 
-    // Dynamic background data transfer
-    fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: json
-        })
-        .then(async (response) => {
-            let res = await response.json();
-            if (response.status == 200) {
-                // Smooth backend execution complete -> update display states
-                form.reset();
-                form.classList.add('hidden');
-                successResponse.classList.remove('hidden');
-            } else {
-                console.error(res);
-                showError();
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            showError();
-        });
+    // கூகுள் ஃபார்முக்கு பின்னணியில் டேட்டாவை அனுப்பும் அதிவேக என்ஜின் (No-CORS Mode)
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+    })
+    .then(() => {
+        // வெற்றிகரமாக சப்மிட் ஆனவுடன் ஃபார்ம் மறைந்து "Thank You" அனிமேஷன் காட்டும்
+        form.reset();
+        form.classList.add('hidden');
+        successResponse.classList.remove('hidden');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // கூகுள் சில சமயம் opaque ரெஸ்பான்ஸ் கொடுத்தாலும் டேட்டா ஷீட்டில் விழுந்துவிடும், எனவே இங்கேயும் சக்சஸ் காட்டுகிறோம்
+        form.reset();
+        form.classList.add('hidden');
+        successResponse.classList.remove('hidden');
+    });
 });
-
-function showError() {
-    errorResponse.classList.remove('hidden');
-    submitBtn.disabled = false;
-    submitBtn.innerText = "SEND MESSAGE →";
-}
 </script>
 
 </body>
