@@ -11,9 +11,13 @@
             --brand-navy: #1E3A8A;
             --brand-green: #00703C;
         }
+        /* Custom class to handle style changes on select placeholder */
+        select:invalid {
+            color: #94A3B8; /* Matches slate-400 */
+        }
     </style>
 </head>
-<body class="bg-white text-slate-800 font-sans">
+<body class="bg-white text-slate-800 font-sans antialiased">
 
 <header class="sticky top-0 z-50 bg-[#1E3A8A] border-b-4 border-[#00703C] shadow-lg">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -36,19 +40,19 @@
             <a href="contact.html" class="text-white hover:text-green-400 transition">Contact</a>
         </nav>
 
-        <a href="book-demo.html" class="bg-[#00703C] text-white px-6 py-2.5 rounded font-extrabold text-xs transition-all uppercase">
+        <a href="book-demo.html" class="bg-[#00703C] hover:bg-green-700 text-white px-6 py-2.5 rounded font-extrabold text-xs transition-all uppercase tracking-wider shadow">
             Book Free Demo
         </a>
     </div>
 </header>
 
-<section class="py-24 bg-slate-50">
-    <div class="max-w-2xl mx-auto px-6">
-        <div class="bg-[#1E3A8A] border-b-8 border-[#00703C] text-white rounded-[2.5rem] p-12 shadow-2xl">
-            <h1 class="text-4xl font-black text-center mb-3">Book Your <span class="text-green-400">FREE</span> Demo</h1>
-            <p class="text-center text-blue-100 text-lg mb-10">Get a live walkthrough of our services in just 15 minutes</p>
+<section class="py-24 bg-slate-50 min-h-[calc(100vh-180px)] flex items-center">
+    <div class="max-w-2xl mx-auto px-6 w-full">
+        <div class="bg-[#1E3A8A] border-b-8 border-[#00703C] text-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
+            <h2 class="text-3xl md:text-4xl font-black text-center mb-3">Book Your <span class="text-green-400">FREE</span> Demo</h2>
+            <p class="text-center text-blue-100 text-base md:text-lg mb-10">Get a live walkthrough of our services in just 15 minutes</p>
 
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='process_demo.html';}"></iframe>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof submitted !== 'undefined' && submitted) {window.location='process_demo.html';}"></iframe>
 
             <form action="https://docs.google.com/forms/d/e/1FAIpQLSdTY1E2FGBaenkyla4k8R8-uyeH1uyj87_0tq9LBN6zp-5cmw/formResponse" 
                   method="POST" 
@@ -56,44 +60,56 @@
                   onsubmit="submitted=true;" 
                   class="space-y-6">
                 
-                <input type="text" name="entry.1812291915" placeholder="Full Name *" required 
-                       class="w-full px-6 py-5 rounded-2xl bg-white text-slate-900 outline-none focus:ring-4 focus:ring-green-400/30 transition-all border-none">
+                <div>
+                    <input type="text" name="entry.1812291915" placeholder="Full Name *" required 
+                           class="w-full px-6 py-5 rounded-2xl bg-white text-slate-900 placeholder-slate-400 outline-none focus:ring-4 focus:ring-green-400/30 transition-all border-none text-base shadow-sm">
+                </div>
                 
-                <input type="tel" name="entry.2096171002" placeholder="Mobile Number *" required 
-                       class="w-full px-6 py-5 rounded-2xl bg-white text-slate-900 outline-none focus:ring-4 focus:ring-green-400/30 transition-all border-none">
+                <div>
+                    <input type="tel" name="entry.2096171002" placeholder="Mobile Number *" required 
+                           class="w-full px-6 py-5 rounded-2xl bg-white text-slate-900 placeholder-slate-400 outline-none focus:ring-4 focus:ring-green-400/30 transition-all border-none text-base shadow-sm">
+                </div>
                 
-                <input type="email" name="entry.890095265" placeholder="Email (Optional)" 
-                       class="w-full px-6 py-5 rounded-2xl bg-white text-slate-900 outline-none focus:ring-4 focus:ring-green-400/30 transition-all border-none">
+                <div>
+                    <input type="email" name="entry.890095265" placeholder="Email (Optional)" 
+                           class="w-full px-6 py-5 rounded-2xl bg-white text-slate-900 placeholder-slate-400 outline-none focus:ring-4 focus:ring-green-400/30 transition-all border-none text-base shadow-sm">
+                </div>
                 
-                <select name="entry.2114291377" required class="w-full px-6 py-5 rounded-2xl bg-white text-slate-500 outline-none focus:ring-4 focus:ring-green-400/30 transition-all border-none appearance-none">
-                    <option value="">Select Service *</option>
-                    <option value="Bulk SMS">Bulk SMS</option>
-                    <option value="Voice Call">Voice Call</option>
-                    <option value="Verified WhatsApp">Verified WhatsApp</option>
-                    <option value="RCS Business Messaging">RCS Business Messaging</option>
-                    <option value="Digital Ads (Meta/Google)">Digital Ads (Meta/Google)</option>
-                    <option value="AI Video Content Production">AI Video Content Production</option>
-                </select>
+                <div class="relative">
+                    <select name="entry.2114291377" required 
+                            class="w-full px-6 py-5 rounded-2xl bg-white text-slate-900 outline-none focus:ring-4 focus:ring-green-400/30 transition-all border-none text-base shadow-sm appearance-none cursor-pointer">
+                        <option value="" disabled selected hidden>Select Service *</option>
+                        <option value="Bulk SMS" class="text-slate-900">Bulk SMS</option>
+                        <option value="Voice Call" class="text-slate-900">Voice Call</option>
+                        <option value="Verified WhatsApp" class="text-slate-900">Verified WhatsApp</option>
+                        <option value="RCS Business Messaging" class="text-slate-900">RCS Business Messaging</option>
+                        <option value="Digital Ads (Meta/Google)" class="text-slate-900">Digital Ads (Meta/Google)</option>
+                        <option value="AI Video Content Production" class="text-slate-900">AI Video Content Production</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-6 text-slate-400">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
 
-                <button type="submit" class="w-full bg-[#00703C] hover:bg-white hover:text-[#1E3A8A] text-white py-6 rounded-2xl text-xl font-black transition-all shadow-lg uppercase tracking-wider">
+                <button type="submit" class="w-full bg-[#00703C] hover:bg-white hover:text-[#1E3A8A] text-white py-5 rounded-2xl text-lg md:text-xl font-black transition-all shadow-lg uppercase tracking-wider transform active:scale-[0.99]">
                     CONFIRM DEMO SLOT →
                 </button>
             </form>
         </div>
         
-        <p class="text-center mt-8 text-slate-400 text-sm">
-            <i class="fas fa-shield-alt mr-2 text-green-600"></i> Your data is safe with us. We follow TRAI DLT guidelines.
+        <p class="text-center mt-8 text-slate-400 text-sm flex items-center justify-center gap-2">
+            <i class="fas fa-shield-alt text-green-600"></i> Your data is safe with us. We follow TRAI DLT guidelines.
         </p>
     </div>
 </section>
 
 <footer class="bg-white py-12 text-center text-sm text-slate-500 border-t border-slate-100">
     <div class="max-w-7xl mx-auto px-6">
-        <p class="font-bold text-[#1E3A8A] mb-2">The Gateway Solution</p>
-        <p>49/1A, 1st Floor, Ambai Road, Alangulam - 627851</p>
-        <p>Mobile: +91 9894012273</p>
-        <div class="mt-8 pt-8 border-t border-slate-50">
-            © 2026 The Gateway Solution. All Rights Reserved.
+        <p class="font-bold text-[#1E3A8A] mb-2 text-base">The Gateway Solution</p>
+        <p class="mb-1">49/1A, 1st Floor, Ambai Road, Alangulam - 627851</p>
+        <p>Mobile: <a href="tel:+919894012273" class="hover:text-[#1E3A8A] transition">+91 9894012273</a></p>
+        <div class="mt-8 pt-8 border-t border-slate-100 text-xs text-slate-400">
+            &copy; 2026 The Gateway Solution. All Rights Reserved.
         </div>
     </div>
 </footer>
