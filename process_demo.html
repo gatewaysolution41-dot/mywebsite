@@ -1,24 +1,32 @@
 <?php
-include 'config.html';
+// Ensure your connection file name matches correctly (changed from .html to .php)
+include 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name    = $conn->real_escape_string($_POST['name']);
-    $phone   = $conn->real_escape_string($_POST['phone']);
-    $email   = $conn->real_escape_string($_POST['email'] ?? '');
-    $service = $conn->real_escape_string($_POST['service'] ?? '');
-    $message = $conn->real_escape_string($_POST['message'] ?? '');
+    // Collect and sanitize basic clean strings
+    $name    = trim($_POST['name']);
+    $phone   = trim($_POST['phone']);
+    $email   = trim($_POST['email'] ?? '');
+    $service = trim($_POST['service'] ?? '');
+    $message = trim($_POST['message'] ?? '');
 
-    $sql = "INSERT INTO leads (name, phone, email, service, message) 
-            VALUES ('$name', '$phone', '$email', '$service', '$message')";
+    // Use Prepared Statements to completely secure the MySQL database insertion
+    $stmt = $conn->prepare("INSERT INTO leads (name, phone, email, service, message) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $name, $phone, $email, $service, $message);
 
-    if ($conn->query($sql) === TRUE) {
+    if ($stmt->execute()) {
+        // Success browser notice and graceful client return
         echo "<script>
             alert('Thank you! Our team will contact you within 15 minutes.');
             window.location.href = 'index.html';
         </script>";
     } else {
-        echo "Error: " . $conn->error;
+        echo "Database Insertion Error: " . $stmt->error;
     }
+    
+    $stmt->close();
 }
+
 $conn->close();
+?>
 ?>
