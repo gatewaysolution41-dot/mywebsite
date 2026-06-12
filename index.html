@@ -135,22 +135,32 @@
             border-color: #1E3A8A;
             box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
         }
-/* Updated Gallery Styling */
-/* Container for the icons */
 .gallery-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 25px; /* Adjust spacing between icons */
-    padding: 20px;
+    gap: 40px; /* Increased gap to accommodate text */
 }
 
-/* Force icons into a uniform, fixed circle size */
+.icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-wrapper p {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #1e3a8a; /* Use your brand navy color */
+    font-size: 0.9rem;
+}
+
+/* Ensure the links maintain the circle shape */
 .gallery-grid a {
     display: flex;
-    width: 90px;  /* Set fixed width */
-    height: 90px; /* Set fixed height to make it a perfect circle */
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     overflow: hidden;
     background: #ffffff;
@@ -158,14 +168,12 @@
     transition: transform 0.3s ease;
 }
 
-/* Ensure the image fills the circle */
 .gallery-grid img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This crops images slightly to fit the circle perfectly */
+    object-fit: cover;
 }
 
-/* Hover effect */
 .gallery-grid a:hover {
     transform: scale(1.1);
 }
@@ -233,13 +241,29 @@
     <!-- ==================== Gallery ==================== -->
 <section class="gallery-container py-12">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl font-black text-brand-navy uppercase text-center mb-8">Our Services Portal</h2>
+        <h2 class="text-3xl font-black text-brand-navy uppercase text-center mb-10">Our Services Portal</h2>
+        
         <div class="gallery-grid">
-            <a href="http://sms.thegatewaysolution.net/" target="_blank"><img src="bulk sms.jfif" alt="SMS Portal"></a>
-            <a href="http://103.255.103.28/login.php" target="_blank"><img src="voice call.jfif" alt="Login Portal"></a>
-            <a href="http://103.224.243.90/" target="_blank"><img src="virtual wts.jfif" alt="Server Portal"></a>
-            <a href="http://180.179.15.197/signin" target="_blank"><img src="verified wts.jfif" alt="Sign In 1"></a>
-            <a href="http://180.179.15.197/signin" target="_blank"><img src="rcs mes.jfif" alt="Sign In 2"></a>
+            <div class="icon-wrapper">
+                <a href="http://sms.thegatewaysolution.net/" target="_blank"><img src="bulk sms.jfif" alt="Bulk SMS"></a>
+                <p>Bulk SMS</p>
+            </div>
+            <div class="icon-wrapper">
+                <a href="http://103.255.103.28/login.php" target="_blank"><img src="voice call.jfif" alt="Voice Call"></a>
+                <p>Voice Call</p>
+            </div>
+            <div class="icon-wrapper">
+                <a href="http://103.224.243.90/" target="_blank"><img src="virtual wts.jfif" alt="Virtual WhatsApp"></a>
+                <p>Virtual WhatsApp</p>
+            </div>
+            <div class="icon-wrapper">
+                <a href="http://180.179.15.197/signin" target="_blank"><img src="verified wts.jfif" alt="Verified WhatsApp"></a>
+                <p>Verified WhatsApp</p>
+            </div>
+            <div class="icon-wrapper">
+                <a href="http://180.179.15.197/signin" target="_blank"><img src="rcs mes.jfif" alt="RCS Messaging"></a>
+                <p>RCS Messaging</p>
+            </div>
         </div>
     </div>
 </section>
