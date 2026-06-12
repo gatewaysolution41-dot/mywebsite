@@ -135,25 +135,14 @@
             border-color: #1E3A8A;
             box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
         }
-        .gallery-grid {
-    display: grid;
-    /* This creates columns that are at least 150px wide, 
-       filling the available space automatically */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px; /* Space between the images */
-    padding: 20px;
+.gallery-grid a {
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
 }
 
-.gallery-grid img {
-    width: 100%;
-    height: 150px; /* Forces uniform height for the "small icon" look */
-    object-fit: cover; /* Prevents the image from looking stretched */
-    border-radius: 8px; /* Optional: adds rounded corners */
-    transition: transform 0.3s ease;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.05); /* Optional: slight zoom effect on hover */
+.gallery-grid a:hover {
+    opacity: 0.8; /* The icon will slightly fade when hovered, indicating it's a link */
 }
     </style>
 </head>
@@ -217,15 +206,17 @@
     </div>
 </section>
     <!-- ==================== Gallery ==================== -->
-<section class="gallery-container">
-    <h2 class="text-3xl font-black text-brand-navy uppercase text-center mb-8">Our Gallery</h2>
-    <div class="gallery-grid">
-        <img src="image1.jpg" alt="Description 1">
-        <img src="image2.jpg" alt="Description 2">
-        <img src="image3.jpg" alt="Description 3">
-        <img src="image4.jpg" alt="Description 4">
-        <img src="image5.jpg" alt="Description 5">
+section class="gallery-container py-12">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-black text-brand-navy uppercase text-center mb-8">Our Gallery</h2>
+        <div class="gallery-grid">
+            <a href="https://your-link-here.com" target="_blank"><img src="image1.jpg" alt="Description 1"></a>
+            <a href="https://your-link-here.com" target="_blank"><img src="image2.jpg" alt="Description 2"></a>
+            <a href="https://your-link-here.com" target="_blank"><img src="image3.jpg" alt="Description 3"></a>
+            <a href="https://your-link-here.com" target="_blank"><img src="image4.jpg" alt="Description 4"></a>
+            <a href="https://your-link-here.com" target="_blank"><img src="image5.jpg" alt="Description 5"></a>
         </div>
+    </div>
 </section>
 <!-- ==================== ABOUT US SECTION (UPDATED) ==================== -->
 <section id="about-us" class="py-24 bg-white overflow-hidden">
